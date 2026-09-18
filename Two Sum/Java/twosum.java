@@ -3,6 +3,14 @@ import java.util.Map;
 import java.util.Scanner;
 
 class Solution {
+	/**
+	 * Finds two distinct indices whose values add up to the target by checking
+	 * every possible pair.
+	 *
+	 * @param nums input array
+	 * @param target required sum
+	 * @return indices of the matching pair, or an empty array if none exists
+	 */
 	public int[] twoSum_brute(int[] nums, int target) {
 		for (int i = 0; i < nums.length - 1; i++) {
 			for (int j = i + 1; j < nums.length; j++) {
@@ -14,13 +22,22 @@ class Solution {
 		return new int[0];
 	}
 
+	/**
+	 * Finds two distinct indices whose values add up to the target using a hash map.
+	 *
+	 * @param nums input array
+	 * @param target required sum
+	 * @return indices of the matching pair, or an empty array if none exists
+	 */
 	public int[] twoSum_hashmap(int[] nums, int target) {
 		Map<Integer, Integer> numMap = new HashMap<>();
 		for (int i = 0; i < nums.length; i++) {
 			int complement = target - nums[i];
+			// Look for the required complement among previously visited values.
 			if (numMap.containsKey(complement)) {
 				return new int[] {numMap.get(complement), i};
 			}
+			// Store the current value and its index for future pairs.
 			numMap.put(nums[i], i);
 		}
 		return new int[0];
