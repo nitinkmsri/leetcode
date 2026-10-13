@@ -17,6 +17,7 @@ void twoSum(const int *nums, int numsSize, int target, int result[2]) {
 	}
 }
 
+
 /* Find two indices whose values add up to target using a simple hash table. */
 void twoSumHashmap(const int *nums, int numsSize, int target, int result[2]) {
 	int capacity = numsSize * 2 + 1;
